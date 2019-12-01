@@ -1,0 +1,10 @@
+sudo: required
+services:
+  -docker
+before_install:
+  -docker build -f rakeshkumardb/docker-react -f dockerfile.dev .
+
+  script:
+    -docker run rakeshkumardb/docker-react npm run test -- --coverage
+
+
